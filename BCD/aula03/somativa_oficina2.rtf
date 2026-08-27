@@ -1,0 +1,331 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1046{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\fnil\fcharset0 MS Sans Serif;}}
+{\colortbl ;\red0\green0\blue255;\red0\green0\blue0;}
+\viewkind4\uc1\pard\cf1\b\f0\fs16 001 - Atributo: \cf2\b0 CNPJ\cf1\b 
+\par \cf0\b0 qual \f1\'e9 o CNPJ
+\par \f0 
+\par \cf1\b 002 - Atributo: \cf2\b0 CPF\cf1\b 
+\par \cf0\b0 CPF do cliente
+\par 
+\par \cf1\b 003 - Atributo: \cf2\b0 CPF\cf1\b 
+\par \cf0\b0 CPF do funcionario 
+\par \cf1\b 004 - Atributo: \cf2\b0 CPF\cf1\b 
+\par \cf0\b0 CPF do cliente 
+\par \cf1\b 005 - Entidade: \cf2\b0 Clientes\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos clientes cadastrados
+\par Relacionamentos entre Funcionarios, Veiculos, Pagamento , Ordem de Servi\'e7o
+\par Cardinalidade do relacionamento 1,1, 1,n, 1,1e 1,n
+\par NOME: varchar(60) not null, nome do cliente
+\par CPF: varchar(14) not null unique, CPF do cliente para reconhecimento
+\par EMAIL: varchar(50), email do cliente
+\par TELEFONE: varchar(14), telefone do cliente para contato
+\par cidade: varchar(20), cidade que o cliente mora
+\par \f0 
+\par \cf1\b 006 - Atributo: \cf2\b0 DATA_PAGAMENTO\cf1\b 
+\par \cf0\b0 data que o pagamento foi realizado
+\par 
+\par \cf1\b 007 - Atributo: \cf2\b0 Forma\cf1\b 
+\par \cf0\b0 forma de pagamento, como ser\f1\'e1 realizado
+\par \f0 
+\par \cf1\b 008 - Entidade: \cf2\b0 Fornecedores\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos fornecedores da oficina
+\par Relacionamentos entre Pe\'e7as
+\par Cardinalidade do relacionamento 1,n
+\par NOME varchar(60) not null, nome da empresa
+\par cidade varchar(20),
+\par  qual cidade que a empresa est\'e1
+\par CNPJ varchar(20) not null,
+\par  guarda o CNPJ da empresa
+\par VALOR_DESCONTO decimal, qual ser\'e1 o valor que a empresa da de descono para a oficina 
+\par DATA_DE_FORNECIMENTO datetime, quando ser\'e1 entregue as pe\'e7as
+\par \f0 
+\par \cf1\b 009 - Entidade: \cf2\b0 Marca\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es da marca dos carros
+\par Relacionamentos entre Modelos, Veiculos 
+\par Cardinalidade do relacionamento 1,1 e  1,n 
+\par ano year,
+\par  qual \'e9 o ano do veiculo
+\par NOME varchar(60) not null,
+\par  novamente nome do veiculo
+\par FABRICA\'c7\'c3O datetime, data da fabrica\'e7\'e3o do veiculo
+\par PAIS varchar(50), pa\'eds de origem do carro
+\par ESTILO varchar(50) not null, como o carro \'e9 
+\par \f0 
+\par \cf1\b 010 - Entidade: \cf2\b0 Modelos\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos modelos dos carros
+\par Relacionamentos entre Marca, Veiculos
+\par Cardinalidade do relacionamento 1,1, 1,1
+\par ano year,
+\par  ano que o carro foi feito 
+\par COR varchar(50), a cor que ele \'e9
+\par TIPO enum ("MANUAL","ELETRICO") default 'MANUAL', pergunta se o carro \'e9 manual ou eletrico
+\par PAIS varchar(50), pa\'eds de origem
+\par ESTILO varchar(50) not null, estilo do carro
+\par \f0 
+\par \cf1\b 011 - Entidade: \cf2\b0 Ordem_de_servi\f1\'e7o\cf1\b 
+\par \cf0\b0\f0 Tabela responsavel por organizar as informa\f1\'e7\'f5es das ordens de servi\'e7o
+\par Relacionamentos entre Servi\'e7os, Pagamento, Clientes
+\par Cardinalidade do relacionamento 1,1, 1,1 e 1,1
+\par NOME varchar(60) not null, nome do funcionario
+\par servi\'e7o varchar(100), qual foi o servi\'e7o feito
+\par VALOR decimal,
+\par  quanto deu tudo 
+\par FUNCIONARIO varchar(50),
+\par  qual foi o funcionario que fez o servi\'e7o
+\par PECAS_TROCADAS varchar(10) not null, nome das pe\'e7as que foram trocadas \f0 
+\par \cf1\b 012 - Entidade: \cf2\b0 Pagamento\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es do Pagamento
+\par Relacionamentos entre Ordem de Servi\'e7o, Clientes, Veiculos
+\par Cardinalidade do relacionamento 1,1, 1,1 e 1,n 
+\par FORMA enum ("PIX", "BOLETO", "DEBITO", "CREDITO", "DINHEIRO") default 'BOLETO', d\'e1 op\'e7\'f5es de forma de pagamento 
+\par cidade varchar(20),
+\par  qual \'e9 a cidade que est\'e1 sendo realizada o pagamento 
+\par CPF varchar(14) not null unique, CPF do cliente para colocar na nota fiscal 
+\par DATA_PAGAMENTO datetime, a data que o pagamento est\'e1 sendo realizado
+\par \f0 
+\par \cf1\b 013 - Entidade: \cf2\b0 Pe\f1\'e7as\cf1\b 
+\par \cf0\b0\f0 Tabela responsavel por organizar as informa\f1\'e7\'f5es das pe\'e7as
+\par Relacionamentos entre Servi\'e7os, Fornecedores
+\par Cardinalidade do relacionamento 0,n e 0,1
+\par NOME varchar(60) not null, qual \'e9 o nome da pe\'e7a
+\par LOCAL varchar(50), qual local do carro que precisar\'e1 dessa pe\'e7a
+\par PRECO decimal, qul \'e9 o pre\'e7o da pe\'e7a
+\par QUANTIDADE varchar(14) not null, quantas pe\'e7as ser\'e3o necessarias
+\par DIA_PEDIDO datetime, qual foi o dia que foi pedido a pe\'e7a
+\par \f0 
+\par \cf1\b 014 - Entidade: \cf2\b0 Servi\f1\'e7os\cf1\b 
+\par \cf0\b0\f0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos servi\'e7os que precisam ser feitos
+\par Relacionamentos entre Funcionarios, Pe\'e7as, Ordem de Servi\'e7o
+\par Cardinalidade do relacionamento 1,1, 1,n e 1,n 
+\par TEMPO time not null,
+\par  quanto tempo o servi\'e7o levar\'e1
+\par TIPO varchar(50) not null,
+\par  qual ser\'e1 o tipo de servi\'e7o
+\par DATA_ENTREGA datetime, qual ser\'e1 a data de entrega para esse servi\'e7o
+\par VALOR decimal, qual ser\'e1 o valor do servi\'e7o
+\par FUNCIONARIO varchar(50), qual funcionario realizar\'e1 o servi\'e7o
+\par \f0 
+\par \cf1\b 015 - Atributo: \cf2\b0 ano\cf1\b 
+\par \cf0\b0 ano de fabrica\f1\'e7\'e3o do veiculo
+\par \f0 
+\par \cf1\b 016 - Atributo: \cf2\b0 ano\cf1\b 
+\par \cf0\b0 ano do carro para reconhecimento
+\par 
+\par \cf1\b 017 - Atributo: \cf2\b0 ano\cf1\b 
+\par \cf0\b0 ano de fabrica\f1\'e7\'e3o
+\par \f0 
+\par \cf1\b 018 - Atributo: \cf2\b0 boleto\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 019 - Atributo: \cf2\b0 caminhonete\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 020 - Atributo: \cf2\b0 carro\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 021 - Atributo: \cf2\b0 cidade\cf1\b 
+\par \cf0\b0 qual a cidade que o fornecedor se encontra
+\par 
+\par \cf1\b 022 - Atributo: \cf2\b0 cidade\cf1\b 
+\par \cf0\b0 cidade onde foi realizado o pagamento
+\par 
+\par \cf1\b 023 - Rela\f1\'e7\'e3o: \cf2\b0 conhecem\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 024 - Rela\f1\'e7\'e3o: \cf2\b0 contem\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 025 - Atributo: \cf2\b0 cor\cf1\b 
+\par \cf0\b0 cor do carro
+\par 
+\par \cf1\b 026 - Atributo: \cf2\b0 credito\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 027 - Atributo: \cf2\b0 data_de_fornecimento\cf1\b 
+\par \cf0\b0 qual \f1\'e9 a data que foi fornecido a pe\'e7a
+\par \f0 
+\par \cf1\b 028 - Atributo: \cf2\b0 data_entrega\cf1\b 
+\par \cf0\b0 qual \f1\'e9 a data prevista para entrega \f0 
+\par \cf1\b 029 - Atributo: \cf2\b0 debito\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 030 - Atributo: \cf2\b0 dia_pedido\cf1\b 
+\par \cf0\b0 qual \f1\'e9 o dia que foi pedido as pe\'e7as
+\par \f0 
+\par \cf1\b 031 - Atributo: \cf2\b0 dinheiro\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 032 - Atributo: \cf2\b0 eletrico\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 033 - Atributo: \cf2\b0 eletrico\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 034 - Atributo: \cf2\b0 email\cf1\b 
+\par \cf0\b0 email do cliente
+\par 
+\par \cf1\b 035 - Atributo: \cf2\b0 email\cf1\b 
+\par \cf0\b0 email do funcionario 
+\par 
+\par \cf1\b 036 - Atributo: \cf2\b0 enedere\f1\'e7o\cf1\b 
+\par \cf0\b0\f0 cidade em que o cliente mora
+\par 
+\par \cf1\b 037 - Atributo: \cf2\b0 estilo\cf1\b 
+\par \cf0\b0 estilo do veiculo (cor..)
+\par 
+\par \cf1\b 038 - Atributo: \cf2\b0 estilo\cf1\b 
+\par \cf0\b0 estilo do carro
+\par 
+\par \cf1\b 039 - Atributo: \cf2\b0 fabrica\f1\'e7\'e3o\cf1\b 
+\par \cf0\b0\f0 ano de fabrica\f1\'e7\'e3o do carro \f0 
+\par \cf1\b 040 - Atributo: \cf2\b0 funcionario\cf1\b 
+\par \cf0\b0 qual foi o funcionario que realizou o servi\f1\'e7o
+\par \f0 
+\par \cf1\b 041 - Atributo: \cf2\b0 funcionario\cf1\b 
+\par \cf0\b0 nome do funcionario que realizou o servi\f1\'e7o
+\par \f0 
+\par \cf1\b 042 - Entidade: \cf2\b0 funcionarios\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos funcionarios da oficina
+\par Relacionamentos entre Clientes, Servi\'e7os
+\par Cardinalidade do relacionamento 1,n e 1,n 
+\par NOME varchar(60) not null, nome do funcionario
+\par FUN\'c7\'c3O varchar(50),
+\par  qual fun\'e7\'e3o ele exercer\'e1 dentro da oficina
+\par EMAIL varchar(50),
+\par  email do funcionario para cadastro
+\par TELEFONE varchar(14), telefone do funcionario para contato
+\par CPF varchar(14) not null unique, CPF do funcionario
+\par \f0 
+\par \cf1\b 043 - Atributo: \cf2\b0 fun\f1\'e7\'e3o\cf1\b 
+\par \cf0\b0\f0 fun\f1\'e7\'e3o que ele exercer\'e1
+\par \f0 
+\par \cf1\b 044 - Atributo: \cf2\b0 garantia\cf1\b 
+\par \cf0\b0 quanto tempo de garantia
+\par 
+\par \cf1\b 045 - Rela\f1\'e7\'e3o: \cf2\b0 geram\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 046 - Atributo: \cf2\b0 id_clientes\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 047 - Atributo: \cf2\b0 id_fornecedores\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 048 - Atributo: \cf2\b0 id_funcionarios\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 049 - Atributo: \cf2\b0 id_marcas\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 050 - Atributo: \cf2\b0 id_modelos\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 051 - Atributo: \cf2\b0 id_oredemservi\f1\'e7o\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 052 - Atributo: \cf2\b0 id_pagamento\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 053 - Atributo: \cf2\b0 id_pecas\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 054 - Atributo: \cf2\b0 id_servicos\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 055 - Atributo: \cf2\b0 id_veiculos\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 056 - Rela\f1\'e7\'e3o: \cf2\b0 libera\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 057 - Atributo: \cf2\b0 local\cf1\b 
+\par \cf0\b0 local do carro onde precisa das pe\f1\'e7as
+\par \f0 
+\par \cf1\b 058 - Atributo: \cf2\b0 manual\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 059 - Atributo: \cf2\b0 manual\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 060 - Atributo: \cf2\b0 moto\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 061 - Atributo: \cf2\b0 motor\cf1\b 
+\par \cf0\b0 qual \f1\'e9 o tipo de motor que o carro tem
+\par \f0 
+\par \cf1\b 062 - Rela\f1\'e7\'e3o: \cf2\b0 necessitam\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 063 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome dp funcionario
+\par 
+\par \cf1\b 064 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome do cliente
+\par 
+\par \cf1\b 065 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome da pe\f1\'e7a
+\par \f0 
+\par \cf1\b 066 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome do cliente 
+\par \cf1\b 067 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome do veiculo
+\par 
+\par \cf1\b 068 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome da empresa que est\f1\'e1 fornecendo
+\par \f0 
+\par \cf1\b 069 - Atributo: \cf2\b0 nome\cf1\b 
+\par \cf0\b0 nome da marca
+\par 
+\par \cf1\b 070 - Atributo: \cf2\b0 pais\cf1\b 
+\par \cf0\b0 pais de origem 
+\par 
+\par \cf1\b 071 - Atributo: \cf2\b0 pais\cf1\b 
+\par \cf0\b0 pais de origem do carro
+\par 
+\par \cf1\b 072 - Atributo: \cf2\b0 pecas_trocadas\cf1\b 
+\par \cf0\b0 quais foram as pe\f1\'e7as que fora trocadas
+\par \f0 
+\par \cf1\b 073 - Atributo: \cf2\b0 pix\cf1\b 
+\par \cf0\b0 
+\par \cf1\b 074 - Atributo: \cf2\b0 placa\cf1\b 
+\par \cf0\b0 placa do veiculo para reconhecimento
+\par 
+\par \cf1\b 075 - Rela\f1\'e7\'e3o: \cf2\b0 precisam\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 076 - Rela\f1\'e7\'e3o: \cf2\b0 precisam\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 077 - Atributo: \cf2\b0 preco\cf1\b 
+\par \cf0\b0 pre\f1\'e7o da pe\'e7a
+\par \f0 
+\par \cf1\b 078 - Atributo: \cf2\b0 quantidade \cf1\b 
+\par \cf0\b0 quantidade de pe\f1\'e7as que precisam para o servi\'e7o
+\par \f0 
+\par \cf1\b 079 - Rela\f1\'e7\'e3o: \cf2\b0 realizam\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 080 - Rela\f1\'e7\'e3o: \cf2\b0 realizam \cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 081 - Rela\f1\'e7\'e3o: \cf2\b0 recebem\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 082 - Atributo: \cf2\b0 servi\f1\'e7o\cf1\b 
+\par \cf0\b0\f0 qual servi\f1\'e7o foi feito
+\par \f0 
+\par \cf1\b 083 - Rela\f1\'e7\'e3o: \cf2\b0 s\'e3o\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 084 - Atributo: \cf2\b0 telefone\cf1\b 
+\par \cf0\b0 telefone do funcionario
+\par 
+\par \cf1\b 085 - Atributo: \cf2\b0 telefone\cf1\b 
+\par \cf0\b0 telefone para contato quando o carro estiver pronto
+\par 
+\par \cf1\b 086 - Rela\f1\'e7\'e3o: \cf2\b0 tem\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 087 - Atributo: \cf2\b0 tempo\cf1\b 
+\par \cf0\b0 tempo que o servi\f1\'e7o demorar\'e1 para ser realizado
+\par \f0 
+\par \cf1\b 088 - Atributo: \cf2\b0 tipo\cf1\b 
+\par \cf0\b0 tipo de servi\f1\'e7o que precisar\'e1 ser realizado (caixa de dire\'e7\'e3o, mola ...)
+\par \f0 
+\par \cf1\b 089 - Atributo: \cf2\b0 tipo\cf1\b 
+\par \cf0\b0 tipo do carro (caminhonete, moto ...)
+\par 
+\par \cf1\b 090 - Atributo: \cf2\b0 tipo\cf1\b 
+\par \cf0\b0 tipo do carro para que possamos saber o modelo
+\par 
+\par \cf1\b 091 - Rela\f1\'e7\'e3o: \cf2\b0 traz\cf1\b 
+\par \cf0\b0\f0 
+\par \cf1\b 092 - Atributo: \cf2\b0 valor\cf1\b 
+\par \cf0\b0 valor do servi\f1\'e7o
+\par \f0 
+\par \cf1\b 093 - Atributo: \cf2\b0 valor\cf1\b 
+\par \cf0\b0 valor total dos servi\f1\'e7os feitos
+\par \f0 
+\par \cf1\b 094 - Atributo: \cf2\b0 valor_desconto\cf1\b 
+\par \cf0\b0 qual \f1\'e9 o valor de desconto que a empresa fornece
+\par \f0 
+\par \cf1\b 095 - Entidade: \cf2\b0 veiculos\cf1\b 
+\par \cf0\b0 Tabela responsavel por organizar as informa\f1\'e7\'f5es dos dos veiculos que chegam
+\par Relacionamentos entre Clientes, Modelos, Marca e Pagamento
+\par Cardinalidade do relacionamento 1,1, 1,1,  1,1 e 1,1 
+\par ano year, o ano em que o veiculo foi feito 
+\par motor enum ("MANUAL","ELETRICO") default 'MANUAL', op\'e7\'f5es de qual pe o motor do carro
+\par NOME varchar(60) not null, nome do veiculo
+\par TIPO enum ("CARRO", "CAMINHONETE", "MOTO") default 'CARRO', op\'e7\'f5es de veiculo
+\par 
+\par PLACA varchar(50) not null, qual \'e9 a placa do veiculo
+\par \f0 
+\par 
+\par }
+ 
