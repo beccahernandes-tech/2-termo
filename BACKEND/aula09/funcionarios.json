@@ -1,0 +1,22 @@
+[
+    {
+        "id": 100, 
+        "nome": "Becca", 
+        "setor": "Desenvolvimento" 
+    },
+    {
+        "id": 101, 
+        "nome": "Yasmin", 
+        "setor": "Mecanica" 
+    },
+    {
+        "id": 102, 
+        "nome": "Maria", 
+        "setor": "Logistica" 
+    },
+    {
+        "id": 103, 
+        "nome": "Rafael", 
+        "setor": "Eletro" 
+    }
+]

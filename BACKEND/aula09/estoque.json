@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nome": "Arroz",
+    "qtd": 10
+  },
+  {
+    "id": 2,
+    "nome": "Macarrão",
+    "qtd": 200
+  },
+  {
+    "id": 3,
+    "nome": "Feijão",
+    "qtd": 1200
+  },
+  {
+    "id": 4,
+    "nome": "Chocolate",
+    "qtd": 10
+  }
+]
