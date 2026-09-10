@@ -1,0 +1,10 @@
+const entrada = require('readline-sync');
+
+let sistemaAtivo = true;
+
+while (sistemaAtivo) {
+    try {
+        console.log(" ----Balança de Precisão Industrial----")
+        
+    }
+}
