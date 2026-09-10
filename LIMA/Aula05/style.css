@@ -1,0 +1,46 @@
+/* Configurações Gerais */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aqua;
+    color: rgb(5, 5, 5);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(51, 170, 170);
+    color: white;
+
+}
+
+header h1 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* nav {
+
+} */
+
+nav a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+main {
+    margin: 30px;
+}
+
+section {
+    border: 30px solid #1e3a5f;
+    border-width: 30px;
+    border-color: black;
+    padding: 20px;
+}
+
+.servicos {
+    margin: 20px;
+    padding: 15px;
+    background-color: aliceblue;
+    border: 10px solid #ffffff;
+}
