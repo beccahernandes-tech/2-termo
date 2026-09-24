@@ -66,7 +66,7 @@ CREATE TABLE pagamento (
 );
 
 -- INSERINDO DADOS NO BD 
-
+ 
 INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES 
 ('Luis Felipe', 'luisfelipe@hotmail.com', '19939995', 'Limeira', TRUE ),
 ('Maria', 'maria@email.com', '19999905', 'Limeira', TRUE), 
@@ -77,13 +77,13 @@ INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
 ('Rafael Vieira', 'rafael@email.com', '19999907', 'Limeira', TRUE),
 ('Rebecca', 'becca.hernandes@hotmail.com', '19935053254', 'Limeira', TRUE ),
 ('Renann Campos', 'rennan@email.com', '199999044', 'Limeira', TRUE),
-('Samira Daloxto', 'dalosto@email.com', '19999908', 'Limeira', FALSE),
+('Samira Daloxto', 'dalosto@email.com', 'null', 'Limeira', FALSE),
 ('Sophia Carolina', 'sophia@email.com', '19999901', 'TAUBATE', TRUE),
 ('Vanessa Queiroz', 'vanessa@email.com', '19999912', 'Limeira', TRUE),
 ('Vinicius Henrique', 'viniciusH@email.com', '199999014', 'Limeira', TRUE),
-('Vinicius Santos', 'viniciussants@email.com', '199999015', 'Chicago', TRUE);
+('Vinicius Santos', 'viniciussants@email.com', 'null', 'Chicago', TRUE);
 
-SELECT * FROM cliente;
+SELECT * FROM cliente; 
 
 INSERT INTO categoria (nome) VALUES 
 ('Cafe'), ('Bebidas Quentes'), ('Bebidas Geladas'), ('Doces'), ('Salgados'), ('Combo');
@@ -153,5 +153,59 @@ INSERT INTO pedido (data_pedido, status_pedido, valor_total, id_cliente) VALUES
 ('2026-10-02 09:35:00', 'FINALIZADO', 0.00,1),
 (NOW(), 'ABERTO', 0.00,1);
 
+INSERT INTO item_pedido (id_pedido, id_produto, quantidade, preco_unitario, observacao) 
+VALUES 
+(1, 2, 4, 16.00, NULL),
+(2, 26, 9, 9.00, 'SEM AÇUCAR'),
+(3, 18, 2, 35.00, NULL),
+(4, 47, 7, 07.00, 'PARA LEVAR'),
+(5, 2, 15, 36.00, NULL),
+(6, 8, 5, 08.00, NULL);
 
+SELECT * FROM item_pedido;
 
+INSERT INTO forma_pagamento (descricao) VALUES 
+('Dinheiro'), ('Cartão de Crédito'), ('Cartão de Débito'), ('Pix');
+
+SELECT * FROM forma_pagamento;
+
+INSERT INTO pagamento (id_pedido, id_forma_pagamento, valor, data_pagamento) VALUES
+(2, 2, 19.50, '2026-09-10 09:25:00'),
+(2, 4, 0.00, NOW()),
+(3, 4, 15.00, NULL);
+ 
+SELECT * FROM pagamento; 
+
+-- EXEMPLO NOVO DE INSERÇÃO DE DADOS PÓREM COM RECUPERAÇÃO DO ÚLTIMO ID 
+INSERT INTO (data_pedido, status_pedido, valor_total, id_cliente) VALUES (NOW(), 'ABERTO', '0.00,1');
+SET @pedido = LAST_INSERT_ID();
+SELECT @pedido;
+
+-- ATUALIZAÇÕES E MODIFICAÇÕES DE DADOS 
+-- EX 01
+UPDATE cliente
+SET telefone = '1999988801'
+WHERE id_cliente = 10;
+
+-- EX 02UPDATE produto
+SET preco = 1.00;
+-- NUNCA REALIZAR UM UPDATE SEM --- WHERE
+
+-- EX 03
+UPDATE cliente
+SET telefone = '1999988801',
+    cidade = 'Valinhos'
+WHERE id_cliente = 10;
+
+-- EX 04 AJUSTE DE VALORES
+UPDATE produto
+SET preco - preco * 1.05
+WHERE id_categoria = 1;
+
+-- EX 05 AJUSTES DE ATUALIZAÇÕES CONDICIONAIS 
+UPDATE produto
+SET preco = CASE
+    WHEN preco < 10 THEN preco * 1.10
+    ELSE preco * 1.05
+END 
+WHERE ativo = TRUE;
