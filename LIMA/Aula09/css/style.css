@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: ;
+
+}
+
+nav a {
+    background-color: #2B170D;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #FFF9F3;
+    color: #2B170D;
+}
+
+main {
+    margin: 30px;
+}
+
+.comeco {
+    background-color: #2B170D;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+.sobre {
+    background-color: #FFFFFF;
+    color: #2B170D;
+    margin: 0;
+    padding: 0;
+}
+
+.banner_imagem {
+    background-color: #C66A1A;
+    margin: 0;
+    padding: 0;
+}
+
+.cafes {
+    background-color: #F3E6D7;
+    margin: 0;
+    padding: 0;
+    
+}
+.secao-cabecalho {
+    background-color: #F3E6D7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.card_cafe {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
