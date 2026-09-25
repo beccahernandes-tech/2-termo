@@ -57,3 +57,18 @@ main {
     padding: 0;
     text-align: right;
 }
+
+.texto-dividido {
+  font-size: 3rem;
+  font-weight: bold;
+  
+  /* 1. Cria um gradiente sem transição suave (corte seco aos 50%) */
+  background: linear-gradient(to right, #ff4757 50%, #1fa557 50%);
+  
+  /* 2. Aplica o fundo do gradiente apenas ao formato das letras */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Torna o preenchimento do texto transparente para revelar o fundo */
+  -webkit-text-fill-color: transparent;
+}
