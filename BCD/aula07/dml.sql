@@ -209,3 +209,74 @@ SET preco = CASE
     ELSE preco * 1.05
 END 
 WHERE ativo = TRUE;
+
+-- TRANSAÇÕES - SEGURANÇA PARA DML 
+
+START TRANSACTION;
+
+UPDATE produto 
+SET preco = preco * 2.80
+WHERE id_categoria = 1;
+
+SELECT id_produto, nome, preco 
+FROM produto 
+WHERE id_categoria = 1;
+
+-- Desfaz oque fizemos errado ou volta uma transação 
+ROLLBACK; 
+
+-- Valida o procedimento de transação 
+COMMIT;
+
+START TRANSACTION;
+
+UPDATE cliente SET cidade = 'Santos' WHERE id_cliente = 13;
+
+SELECT * FROM cliente WHERE id_cliente = 13;
+COMMIT;
+
+ROLLBACK;
+
+-- PROCEDIMENTO DE UMA COMPRA 
+-- PASSO 1 
+
+insert into CLIENTE (nome, email, telefone, cidade, ativo) VALUES ('Carlos Silva', 'carlos.silva@email.com', '1999999999', 'Santos', TRUE);
+
+SET @cliente_compra = LAST_INSERT_ID();
+
+-- PASSO 2 
+INSERT INTO pedido (data_pedido, valor_total, id_cliente) VALUES 
+(NOW(), 0.00, @cliente_compra);--O @ É UMA FORMA DE DIZER PRO CODIGO QUE ISSO É UMA VARIAVEL 
+
+-- PASSO 3 
+INSERT INTO ITEM_PEDIDO (id_pedido, id_produto, quantidade, preco_unitario) 
+VALUES 
+  (@pedido_compra, 4, 1, 13.00),
+  (@pedido_compra, 9, 1, 9.00);
+
+-- PASSO 4 
+UPDATE pedido
+SET valor_total = 22.00,
+    status = 'Preparando'
+WHERE id_pedido = @pedido_compra;
+
+-- PASSO 5 REGISTRAR PAGAMENTO 
+INSERT INTO pagamento (id_pedido, id_forma_pagamento, valor, data_pagamento) VALUES (@pedido_compra,2,22.00,NOW());
+
+-- PASSO 6 CONSULTAR PEDIDO E RESULTADO
+SELECT p.id_pedido,
+       c.nome AS cliente,
+       p.status AS status_pedido,
+       p.valor_total AS compra_total
+FROM pedido p 
+JOIN cliente c ON c.id_cliente = p.id_cliente 
+WHERE p.id_pedido = @pedido_compra;
+
+-- PASSO 7 
+-- PASSO 1 
+SELECT nome FROM cliente WHERE id_cliente = @cliente_compra;
+
+SELECT nome FROM cliente WHERE id_cliente = 121;
+
+-- PASSO 2 
+SELECT * FROM pedido WHERE id_pedido - @pedido_compra; 
