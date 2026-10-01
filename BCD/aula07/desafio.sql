@@ -141,3 +141,22 @@ INSERT INTO categoria (nome) VALUES
 
 DELETE from categoria
 WHERE nome = 'Excluir Depois';
+
+-- PARTE D - INTEGRIDADE E ERROS CONTROLADOS
+-- Execute uma tentativa por vez. Depois deixe o comando problemático comentado.
+
+-- 17. Tente inserir um produto com id_categoria = 9999.
+-- Qual restrição impediu a operação?
+
+
+-- 18. Tente cadastrar um cliente usando 'ana@email.com'.
+-- Qual restrição impediu a operação?
+
+
+-- 19. Tente criar um pedido com id_cliente = 9999.
+-- Qual restrição impediu a operação?
+
+
+-- 20. Escreva em comentários a diferença entre os três erros anteriores.
+
+
