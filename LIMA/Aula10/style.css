@@ -1,28 +1,28 @@
 /* .menu {
     display: flex;
-    /* flex-direction: column-reverse; */
-    /* justify-content: space-around; */
-    /* justify-content: space-between; /*Vai dar um espco nos textos */
+    flex-direction: column-reverse;
+    justify-content: space-around; 
+    justify-content: space-between; /*Vai dar um espco nos textos */
     /* justify-content: flex-start;
     padding: 20px;
-} */
+} 
 
-/* .menu p {
+.menu p {
     display: flex;
-    /* justify-content: flex-start; */
-    /* padding: 10px;
-    align-items: fle;
-/* } */
+    justify-content: flex-start; 
+    padding: 10px;
+    align-items: center;
+} 
 
-/* .menu2 {
+.menu2 {
     display: flex;
     gap: 40px;
-} */ 
+} 
 
-/* body {
+body {
     display: flex;
     justify-content: center;
-} */
+} */ 
 
 .cabecalho-c {
     display: flex;

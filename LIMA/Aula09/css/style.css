@@ -1,12 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: ;
+    background-color: #f8f5f5;
 
 }
 
 nav a {
-    background-color: #2B170D;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -25,6 +25,10 @@ main {
     color: #FFFFFF;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 8%;
 }
 .sobre {
     background-color: #FFFFFF;
@@ -56,4 +60,17 @@ main {
     margin: 0;
     padding: 0;
     text-align: right;
+}
+
+.paginas {
+    margin: 0;
+    padding: 0;
+
+}
+footer fonte {
+    color: rgb(77, 40, 40); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10;
 }
