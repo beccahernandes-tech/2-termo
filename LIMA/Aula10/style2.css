@@ -1,0 +1,22 @@
+.equipe {
+    display: flex;
+    list-style: none;
+}
+
+.equipe2 {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.equipe3 {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    /* justify-content: flex-start; /* JOGA O TEXTO TODO PARA O COMEÇO DA PAGINA PARA A ESQUERDA
+    /* justify-content: center; /*JOGA O TEXTO TODO NO CENTRO DA TELA 
+    /* justify-content: flex-end; /*ELE JOGA TODO O TESTO PRO FINAL DA TELA
+    /* justify-content: space-between; /*ESSE AQUI DEIXA CADA PALAVRA EM UM CANTO DA TELA, ESQUERDO, CENTRO E DIREITO
+    /* justify-content: space-evenly; /* ESSE DA UM GRANDE ESPAÇAMENTO ESPALHANDO NA TELA 
+}
+
