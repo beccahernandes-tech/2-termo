@@ -1,5 +1,3 @@
-const entrada = require("readline-sync");
-
 const pecaPorHora = 75;
 const horas = 8;
 
