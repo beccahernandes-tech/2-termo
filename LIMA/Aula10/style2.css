@@ -17,6 +17,25 @@
     /* justify-content: center; /*JOGA O TEXTO TODO NO CENTRO DA TELA 
     /* justify-content: flex-end; /*ELE JOGA TODO O TESTO PRO FINAL DA TELA
     /* justify-content: space-between; /*ESSE AQUI DEIXA CADA PALAVRA EM UM CANTO DA TELA, ESQUERDO, CENTRO E DIREITO
-    /* justify-content: space-evenly; /* ESSE DA UM GRANDE ESPAÇAMENTO ESPALHANDO NA TELA 
+    /* justify-content: space-evenly; /* ESSE DA UM GRANDE ESPAÇAMENTO ESPALHANDO NA TELA */
 }
 
+.man {
+    display: flex;
+    align-items: flex-start;
+}
+
+.woman {
+    display: flex;
+    align-items: center;
+}
+ .children {
+    display: flex;
+    align-items: flex-end;
+}
+
+.cards {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
