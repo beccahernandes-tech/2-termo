@@ -77,11 +77,14 @@ INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
 ('Rafael Vieira', 'rafael@email.com', '19999907', 'Limeira', TRUE),
 ('Rebecca', 'becca.hernandes@hotmail.com', '19935053254', 'Limeira', TRUE ),
 ('Renann Campos', 'rennan@email.com', '199999044', 'Limeira', TRUE),
-('Samira Daloxto', 'dalosto@email.com', 'null', 'Limeira', FALSE),
+('Samira Daloxto', 'dalosto@email.com', NULL, 'Limeira', FALSE),
 ('Sophia Carolina', 'sophia@email.com', '19999901', 'TAUBATE', TRUE),
 ('Vanessa Queiroz', 'vanessa@email.com', '19999912', 'Limeira', TRUE),
 ('Vinicius Henrique', 'viniciusH@email.com', '199999014', 'Limeira', TRUE),
-('Vinicius Santos', 'viniciussants@email.com', 'null', 'Chicago', TRUE);
+('Vinicius Santos', 'viniciussants@email.com', NULL, 'Chicago', TRUE);
+
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES 
+('NICOLAS', 'MATHEUS@GAMIL.COM', NULL, 'Limeira', TRUE );
 
 SELECT * FROM cliente; 
 
@@ -100,6 +103,8 @@ VALUES
 ('cafe com leite', 14.00, TRUE, 1),
 ('cafe cremoso', 13.00, TRUE, 1),
 ('cafe americano', 20.00, TRUE, 1);
+
+DROP TABLE produto
 
 INSERT INTO produto (nome, preco, ativo, id_categoria) 
 VALUES 
