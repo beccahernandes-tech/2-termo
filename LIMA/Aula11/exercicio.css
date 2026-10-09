@@ -1,0 +1,52 @@
+.tipo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+    list-style: none;
+    padding: 0;
+}
+
+.e {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 23px;
+    list-style: none;
+    padding: 0;
+}
+
+.TIPO {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.HAM {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+/* DEKSTOP  */
+@media (max-width: 900px) {
+    .Tipo{
+       grid-template-columns: repeat(3, 1fr);
+       gap: 23px; 
+    }
+}
+
+/* Tablet  */
+@media (max-width: 600px) {
+    .Tipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular */
+@media (max-width: 300px) {
+    .Tipo {
+        grid-template-columns: 1fr;
+    }
+}
+
+.NADAAVER {
+    grid-template-columns: repeat (auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
