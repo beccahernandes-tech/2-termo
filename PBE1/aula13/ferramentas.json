@@ -1,0 +1,27 @@
+[
+  {
+    "nome": "lima",
+    "quantidade": 4,
+    "custoUnitario": 24.33
+  },
+  {
+    "nome": "martelo",
+    "quantidade": 2,
+    "custoUnitario": 12.9
+  },
+  {
+    "nome": "chave",
+    "quantidade": 6,
+    "custoUnitario": 10
+  },
+  {
+    "nome": "porca",
+    "quantidade": 9,
+    "custoUnitario": 15
+  },
+  {
+    "nome": "cabo",
+    "quantidade": 12,
+    "custoUnitario": 13.2
+  }
+]
