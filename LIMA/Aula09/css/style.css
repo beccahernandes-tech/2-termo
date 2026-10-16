@@ -1,3 +1,13 @@
+:root {
+    --branco: #FFFFFF;
+    --botao: #C66A1A;
+    --texto-principal: #2B170D;
+    --texto-especifico: #C66A1A;
+    --fundo-creme: #F3E6D7;
+    --fundo-marrom: #2B170D;
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -20,6 +30,20 @@ main {
     margin: 30px;
 }
 
+.banner {
+  display: flex;
+  background-color: #f5e9dc; 
+  width: 100%;
+}
+
+.oi {
+    color: var(--texto-especifico);
+}
+
+.conteudo-texto, .conteudo-imagem {
+  background-color: transparent; 
+  flex: 1;
+}
 .comeco {
     background-color: #2B170D;
     color: #FFFFFF;
