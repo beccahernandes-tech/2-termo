@@ -96,6 +96,7 @@ body {
     display: flex;
     margin: 0;
     justify-content: right;
+    
 }
 
 .imagens{
@@ -105,8 +106,17 @@ body {
 }
 
 .imagens p {
-    color: var(--texto);
-    font-size: 14px;
+    font-size: 0.65rem;
+    color: var(--yellow);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.imagens h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .imagens article {
@@ -116,13 +126,17 @@ body {
     text-align: center;
 }
 
+.ambiente-imagens {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+}
 img {
     width: 200px;
     height: 150px;
     object-fit: cover;
-    border: 5px solid var(--borda);
     border-radius: 10px;
-    box-sizing: border-box;
+    border: 10px solid var(--borda);
 }
 
 .tema-classico {
@@ -171,3 +185,13 @@ nav a {
     padding: 0;
 }
 
+.ultimo {
+    background-color: var(--roxo);
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding: 23px 8%;
+    text-align: center;
+}
