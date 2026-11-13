@@ -75,34 +75,13 @@ img {
     margin: 0;
     padding: 24px;
     background-color: #e100ff;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
-.galeria-img img {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /*deixa um do lado do outro */
-    gap: 48px;
-    border: 2px solid #ff0059;
-    border-radius: 300px;
-    margin: 12px 12px 12px 12px;
-}
-
-.galeria ul {
-    text-decoration: none;
-    list-style: none;
-}
-
-
-.conteudo-art p {
-    color: #ffffff;
-}
-
-.galeria li {
-    color: #ffffff;
-}
-
-@media screen {
+@media (max-width: 400px) {
     .conteudo-img {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+        grid-template-columns: 1fr;
+        
     }
 }
