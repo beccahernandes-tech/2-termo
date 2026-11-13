@@ -146,4 +146,21 @@ button {
 
 }
 
+footer {
+    display: flex;
+    background-color: rgb(47, 47, 128);
+    color: white;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
 
+.finish {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
